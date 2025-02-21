@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">FDRS</string>
+    <string name="app_long_name">FDRS SOS Service</string>
+    <string name="description">FDRS(Falcons Disaster Response System) provides the quick relief responses for the victims at site of disaster. Generate the SOS Signals only while you felt bad about surrounding whether its calamity or manmade disaster. It will surely reach out to Rescue Departments quickly with help of this system</string>
+    <string name="build_number">Build Number: %1$s</string>
+    <string name="warn">*This will generate the SOS signal to Falcons Disaster Response System, legal actions will be taken against false SOS Signals.</string>
+    <string name="emergency_sos">Emergency SOS</string>
+</resources>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="0dp"
+    android:background="@color/black"
+    tools:context=".MainActivity"
+    tools:ignore="ExtraText">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="75dp"
+        android:background="@drawable/b"
+        android:text="@string/app_long_name"
+        android:textAlignment="center"
+        android:gravity="center"
+        android:textColor="@color/black"
+        android:textSize="25sp"
+         android:layout_marginTop="23dp"
+        android:fontFamily="@font/poppins"
+        tools:ignore="RtlCompat,RtlSymmetry"
+        android:textFontWeight="700"
+        tools:targetApi="p"
+        />
+
+    <TextView
+        android:id="@+id/build_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:paddingTop="80dp"
+        android:paddingBottom="47dp"
+        android:text="@string/build_number"
+        android:textSize="12sp"
+        android:textFontWeight="700"
+        tools:targetApi="p"
+        android:textColor="@color/lightgray" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/description"
+        android:textSize="18sp"
+        android:paddingHorizontal="46dp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:justificationMode="inter_character"
+        tools:targetApi="p"
+        android:textFontWeight="400"
+        tools:ignore="VisualLintLongText" />
+
+    <Button
+        android:id="@+id/emergency_sos_button"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="70dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/emergency_sos"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textFontWeight="700"
+        android:textAlignment="center"
+        tools:targetApi="p" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:justificationMode="inter_character"
+        android:paddingHorizontal="46dp"
+        android:paddingVertical="20dp"
+        android:text="@string/warn"
+        android:textAlignment="center"
+        android:textColor="#757575"
+        android:textFontWeight="400"
+        android:textSize="14sp"
+        tools:targetApi="p"
+        tools:ignore="VisualLintLongText" />
+</LinearLayout>

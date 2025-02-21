@@ -1,0 +1,13 @@
+<resources>
+    <!-- Base application theme -->
+    <style name="Base.Theme.Ftechdm3" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your theme here -->
+        <item name="android:colorBackground">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorOnSecondary">@color/white</item>
+    </style>
+
+    <style name="Theme.Ftechdm3" parent="Base.Theme.Ftechdm3" />
+</resources>
