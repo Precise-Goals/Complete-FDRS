@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "476999757389",
+    "project_id": "fdrs-53651",
+    "storage_bucket": "fdrs-53651.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476999757389:android:6a9d1bae8cc76ba7d7f604",
+        "android_client_info": {
+          "package_name": "com.example.fdrs_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD8gx48hLf-g9kVudOXzms0kJEtuXdL4n0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FDRS Premium Profile Unified</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#EF4444", 
+                        "primary-dark": "#991B1B",
+                        "background-dark": "#000000", 
+                        "card-dark": "#0A0A0A",
+                        "input-bg": "#0f0f12",
+                        "accent-glow": "rgba(249, 115, 22, 0.4)",
+                        "glass-border": "rgba(255, 255, 255, 0.15)",
+                    },
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                        display: ['Poppins', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'glass-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+                        'glossy-orange': 'linear-gradient(180deg, #F97316 0%, #EA580C 100%)',
+                        'glossy-red': 'linear-gradient(180deg, #EF4444 0%, #B91C1C 100%)',
+                        'metallic-sheen': 'linear-gradient(135deg, #E5E7EB 0%, #9CA3AF 50%, #D1D5DB 100%)',
+                        'metallic-text': 'linear-gradient(to bottom, #ffffff 0%, #a1a1aa 50%, #ffffff 100%)',
+                    },
+                    boxShadow: {
+                        'glow-primary': '0 0 20px -5px rgba(249, 115, 22, 0.5)',
+                        'glow-input': '0 0 0 1px rgba(249, 115, 22, 0.5), 0 0 15px rgba(249, 115, 22, 0.2)',
+                        'glass-card': '0 8px 32px 0 rgba(0, 0, 0, 0.5)',
+                    },
+                    backdropBlur: {
+                        'xs': '2px',
+                    }
+                },
+            },
+        };
+    </script>
+<style>
+        html { scroll-behavior: smooth; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .glass-input {
+            background: #050505;
+            box-shadow: inset 0 1px 2px rgba(0,0,0,0.5);
+        }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(249, 115, 22, 0); }
+        }
+        .avatar-glow {
+            animation: pulse-ring 3s infinite cubic-bezier(0.66, 0, 0, 1);
+        }
+        .text-metallic {
+            background: linear-gradient(to bottom, #ffffff 20%, #9ca3af 50%, #e5e7eb 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.3);
+        }
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-[#000000] text-gray-100 font-sans transition-colors duration-300 min-h-screen flex flex-col items-center justify-center p-4 sm:p-0">
+<div class="w-full max-w-md bg-background-dark h-full sm:h-[850px] sm:rounded-[40px] sm:shadow-2xl sm:overflow-hidden relative flex flex-col sm:border-[8px] sm:border-[#1a1a1e] box-border transition-all duration-300">
+<div class="absolute top-0 left-0 w-full h-96 bg-gradient-radial from-orange-500/5 via-transparent to-transparent pointer-events-none z-0"></div>
+<header class="px-6 py-6 flex justify-between items-start z-10 mt-4">
+<div class="flex flex-col">
+<h1 class="font-display text-4xl font-extrabold tracking-tighter text-white leading-none">FDRS</h1>
+<div class="flex items-center gap-2 mt-1">
+<span class="relative flex h-2 w-2">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+</span>
+<span class="text-[10px] font-bold tracking-[0.2em] text-green-500/80 uppercase">System Active</span>
+</div>
+</div>
+<button class="p-2 rounded-full bg-white/5 border border-white/10 text-gray-400 hover:text-white transition-all duration-300 backdrop-blur-md">
+<span class="material-symbols-outlined text-xl">settings</span>
+</button>
+</header>
+<main class="flex-1 overflow-y-auto no-scrollbar px-6 pb-32 relative z-10">
+<div class="flex flex-col items-center mt-2 mb-10">
+<div class="relative group">
+<div class="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-500 via-red-500 to-yellow-500 opacity-20 blur-xl avatar-glow"></div>
+<div class="w-32 h-32 rounded-full relative z-10 p-[1px] bg-gradient-to-b from-white/40 to-white/5 shadow-2xl">
+<div class="w-full h-full rounded-full overflow-hidden bg-black relative">
+<img alt="User Avatar" class="w-full h-full object-cover filter contrast-125 brightness-90 hover:scale-110 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAafcWDNXuBe0sn8YX1rC_uF5u9RRQ26AAbLgdf4x8Vii_6Dq7BUpuWbXuUY-NMOZtnaz7Kj52SKJP1hXD05zHovGQiOaH85OTTG1WRb2Tdlmw7wretqwX18PZgFzs9d9zQSPUZDwpCI82puG4PC9ZYAlLRv6RYmxy6rTVBK_w3oF8zPb7D_Z4GzSW1xw7mSg_FLTx8-mJZ5di2H84Au1OrYJkTR95gWnFVyyxwOolrADhxGogTj-HSrk6eCXZirLAmjhMinj0oNQ"/>
+<div class="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-full pointer-events-none"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent pointer-events-none"></div>
+</div>
+</div>
+<button class="absolute bottom-1 right-1 bg-glossy-orange text-white w-9 h-9 flex items-center justify-center rounded-full shadow-lg shadow-orange-900/50 border border-black z-20 hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-[16px]">edit</span>
+</button>
+</div>
+<div class="mt-6 flex flex-col items-center">
+<div class="flex items-center gap-2">
+<h2 class="text-2xl font-semibold tracking-tight text-white">Alex Falconer</h2>
+<span class="material-symbols-outlined text-[20px] text-blue-400 fill-1" style="font-variation-settings: 'FILL' 1;">verified</span>
+</div>
+<p class="text-xs text-gray-400 font-medium mt-1 tracking-wider opacity-60">ID: FDRS-8821-X</p>
+</div>
+</div>
+<form class="space-y-6">
+<div class="bg-black rounded-2xl p-6 border border-glass-border shadow-lg relative overflow-hidden group">
+<div class="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-bl-[40px] pointer-events-none"></div>
+<div class="flex items-center gap-2 mb-6 opacity-60">
+<span class="material-symbols-outlined text-sm">person</span>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">Identity</span>
+</div>
+<div class="space-y-5">
+<div class="group/input relative">
+<label class="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5 ml-1 transition-colors group-focus-within/input:text-orange-500">Full Name</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#050505] text-gray-100 pl-4 pr-10 py-3.5 rounded-lg border border-white/10 focus:border-orange-500/50 focus:shadow-glow-input outline-none transition-all duration-300 placeholder-gray-700 text-sm font-medium tracking-wide" placeholder="Enter your name" type="text" value="Alex Falconer"/>
+</div>
+</div>
+<div class="group/input relative">
+<label class="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5 ml-1 transition-colors group-focus-within/input:text-orange-500">Email Address</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#050505] text-gray-100 pl-4 pr-10 py-3.5 rounded-lg border border-white/10 focus:border-orange-500/50 focus:shadow-glow-input outline-none transition-all duration-300 placeholder-gray-700 text-sm font-medium tracking-wide" placeholder="name@example.com" type="email" value="alex@falcons.com"/>
+</div>
+</div>
+<div class="group/input relative">
+<label class="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5 ml-1 transition-colors group-focus-within/input:text-orange-500">Mobile Number</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#050505] text-gray-100 pl-4 pr-10 py-3.5 rounded-lg border border-white/10 focus:border-orange-500/50 focus:shadow-glow-input outline-none transition-all duration-300 placeholder-gray-700 text-sm font-medium tracking-wide" type="tel" value="+91 98765 43210"/>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-black rounded-2xl p-6 border border-glass-border shadow-lg relative overflow-hidden">
+<div class="absolute top-0 right-0 w-20 h-20 bg-white/5 rounded-bl-[40px] pointer-events-none"></div>
+<div class="flex items-center gap-2 mb-6 opacity-60">
+<span class="material-symbols-outlined text-sm">shield</span>
+<span class="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300">Secure Data</span>
+</div>
+<div class="space-y-5">
+<div class="group/input relative">
+<label class="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5 ml-1 transition-colors group-focus-within/input:text-orange-500">Aadhaar / Secure ID</label>
+<div class="relative flex items-center">
+<input class="w-full bg-[#050505] text-gray-100 pl-4 pr-10 py-3.5 rounded-lg border border-white/10 focus:border-orange-500/50 focus:shadow-glow-input outline-none transition-all duration-300 placeholder-gray-700 text-sm font-medium tracking-wide font-mono" type="text" value="XXXX-XXXX-1234"/>
+<span class="absolute right-4 text-gray-600 material-symbols-outlined text-[18px] pointer-events-none">lock</span>
+</div>
+</div>
+<div class="group/input relative">
+<label class="block text-[10px] font-semibold uppercase tracking-wider text-gray-500 mb-1.5 ml-1 transition-colors group-focus-within/input:text-orange-500">Emergency HQ Address</label>
+<div class="relative flex items-start">
+<textarea class="w-full bg-[#050505] text-gray-100 pl-4 pr-10 py-3.5 rounded-lg border border-white/10 focus:border-orange-500/50 focus:shadow-glow-input outline-none transition-all duration-300 placeholder-gray-700 text-sm font-medium tracking-wide resize-none leading-relaxed" rows="3">123, Disaster Response HQ, Sector 4, New Delhi, India</textarea>
+</div>
+</div>
+</div>
+</div>
+<button class="w-full mt-4 py-4 rounded-xl bg-glossy-orange text-white font-semibold tracking-widest uppercase shadow-glow-primary hover:shadow-lg active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-3 relative overflow-hidden group" type="button">
+<div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
+<span class="material-symbols-outlined">save</span>
+                    Save Secure Profile
+                </button>
+<div class="text-center pt-4 pb-2">
+<a class="text-[11px] text-gray-500 hover:text-white transition-colors flex items-center justify-center gap-1.5 uppercase tracking-wider" href="#">
+<span class="material-symbols-outlined text-[16px]">lock_reset</span>
+                        Manage Credentials
+                    </a>
+</div>
+</form>
+</main>
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 w-[90%] z-50">
+<nav class="bg-white/5 backdrop-blur-md rounded-2xl border border-white/10 px-6 py-4 flex justify-between items-center shadow-2xl">
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-white transition-colors text-2xl">home</span>
+<span class="text-[10px] font-medium text-gray-500 group-hover:text-white transition-colors uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-symbols-outlined text-gray-400 group-hover:text-white transition-colors text-2xl">info</span>
+<span class="text-[10px] font-medium text-gray-500 group-hover:text-white transition-colors uppercase tracking-wider">Info</span>
+</a>
+<a class="flex flex-col items-center gap-1 group w-12" href="#">
+<span class="material-symbols-outlined text-white transition-colors text-2xl fill-1" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="text-[10px] font-medium text-white transition-colors uppercase tracking-wider">Profile</span>
+</a>
+</nav>
+</div>
+</div>
+
+</body></html>

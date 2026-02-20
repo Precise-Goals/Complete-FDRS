@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FDRS SOS Elite - Variant 3</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "true-black": "#000000",
+                        "dark-gray": "#0A0A0A",
+                        "panel-gray": "#141414",
+                        "accent-red": "#FF2A2A",
+                        "glass-border": "rgba(255, 255, 255, 0.08)",
+                        "text-secondary": "#888888",
+                        "sos-orange-light": "#FF8C00",
+                        "sos-orange-dark": "#D35400",
+                    },
+                    fontFamily: {
+                        sans: ["Inter", "sans-serif"],
+                        tech: ["Orbitron", "sans-serif"],
+                    },
+                    boxShadow: {
+                        'liquid-red': '0 0 50px rgba(255, 42, 42, 0.25), inset 0 0 20px rgba(255, 42, 42, 0.2)',
+                        'glow-dot-green': '0 0 8px #22c55e',
+                        'glow-dot-blue': '0 0 8px #3b82f6',
+                        'nav-glow': '0 -10px 40px rgba(0,0,0,0.8)',
+                        'glass-text': '0 2px 4px rgba(0,0,0,0.3)',
+                        'striking-red': '0 0 30px rgba(255, 42, 42, 0.6), inset 0 0 20px rgba(255, 100, 100, 0.3)',
+                    },
+                    backgroundImage: {
+                        'glass-gradient': 'linear-gradient(145deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0.01) 100%)',
+                    },
+                    animation: {
+                        'pulse-fast': 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'ping-slow': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+                    }
+                },
+            },
+        };
+    </script>
+<style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-glass-gradient border border-glass-border backdrop-blur-xl;
+            }
+            .liquid-button {background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+                box-shadow: 
+                    20px 20px 60px #151515,
+                    -20px -20px 60px #252525,
+                    inset 0 0 20px rgba(0,0,0,0.8);
+            }.elegant-sos-btn {
+                background: radial-gradient(circle at 30% 30%, #501010, #300000);
+                box-shadow: 
+                    0 0 40px rgba(255, 42, 42, 0.4),
+                    inset 0 2px 5px rgba(255,255,255,0.2),
+                    inset 0 -5px 15px rgba(0,0,0,0.8),
+                    0 0 15px rgba(255, 42, 42, 0.8);
+                border: 2px solid rgba(255, 60, 60, 0.3);
+            }.glass-morphism-btn {
+                background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.18);
+                box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37), inset 0 0 40px rgba(255, 255, 255, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+            .glass-morphism-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -50%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+                transform: skewX(-25deg);
+                pointer-events: none;
+            }.glass-white-btn {
+                background: linear-gradient(145deg, rgba(255, 255, 255, 0.9), rgba(220, 220, 220, 0.8));
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 255, 255, 0.6);
+                box-shadow: 
+                    0 0 40px rgba(255, 255, 255, 0.1),
+                    inset 0 0 20px rgba(0, 0, 0, 0.05);
+                position: relative;
+                overflow: hidden;
+            }
+             .glass-white-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -50%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(255,255,255,0.8), transparent);
+                transform: skewX(-25deg);
+                opacity: 0.5;
+                pointer-events: none;
+            }
+            .glass-orange-btn {
+                background: linear-gradient(145deg, #FF8C00, #D35400);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+                border: 1px solid rgba(255, 200, 150, 0.6);
+                box-shadow: 
+                    0 0 40px rgba(255, 140, 0, 0.3),
+                    inset 0 0 20px rgba(0, 0, 0, 0.1);
+                position: relative;
+                overflow: hidden;
+            }
+            .glass-orange-btn::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -50%;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent);
+                transform: skewX(-25deg);
+                opacity: 0.5;
+                pointer-events: none;
+            }
+            .black-glass-text {
+                background: linear-gradient(180deg, rgba(0,0,0,0.9), rgba(30,30,30,0.7));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+            }
+            .white-glass-text {
+                background: linear-gradient(180deg, rgba(255,255,255,1), rgba(255,255,255,0.8));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0px 2px 4px rgba(0,0,0,0.2);
+            }
+            .liquid-reflection {
+                background: linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 100%);
+                filter: blur(1px);
+            }
+            .glass-text-effect {
+                background: linear-gradient(to bottom, rgba(255,255,255,0.95), rgba(255,255,255,0.5));
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                text-shadow: 0px 2px 10px rgba(255,42,42,0.5);
+                backdrop-filter: blur(2px);
+            }
+            .nav-item-active::after {
+                content: '';
+                @apply absolute -bottom-4 w-12 h-1 bg-accent-red rounded-full shadow-[0_0_10px_#FF2A2A];
+            }
+        }
+        body {
+            background-color: #000000;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-true-black text-white h-screen overflow-hidden flex flex-col font-sans antialiased">
+<header class="px-6 py-4 flex justify-between items-center z-40 mt-6">
+<div class="flex flex-col">
+<h1 class="text-2xl font-bold tracking-tight text-white">FDRS</h1>
+<span class="text-[10px] uppercase tracking-[0.2em] text-text-secondary">System Active</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-panel-gray border border-glass-border flex items-center justify-center text-white active:scale-95 transition-transform">
+<span class="material-symbols-outlined text-[20px]">settings</span>
+</button>
+</header>
+<main class="flex-1 flex flex-col px-6 relative z-10 justify-center">
+<div class="flex flex-col items-center justify-center relative mb-4">
+<div class="text-center mb-8 mt-8 space-y-4 opacity-100 z-30">
+<h2 class="text-4xl font-normal tracking-tight text-white">Emergency?</h2>
+<p class="text-base text-gray-300 font-normal max-w-[280px] mx-auto leading-relaxed">
+                    Tap below to broadcast location to NDRF &amp; CRPF units.
+                </p>
+</div>
+<div class="relative w-64 h-64 flex items-center justify-center">
+<div class="absolute inset-0 rounded-full border border-orange-500/30 scale-100 animate-[ping_3s_ease-in-out_infinite]"></div>
+<div class="absolute inset-0 rounded-full border border-orange-500/20 scale-110 animate-[ping_3s_ease-in-out_infinite_1s]"></div>
+<button class="glass-orange-btn w-48 h-48 rounded-full relative flex flex-col items-center justify-center active:scale-95 transition-all duration-300 z-20 group">
+<div class="absolute inset-0 rounded-full bg-black/5 blur-xl opacity-30"></div>
+<div class="absolute top-6 right-10 w-16 h-8 rounded-[50%] bg-white/40 rotate-[-25deg] blur-md mix-blend-overlay"></div>
+<div class="absolute bottom-8 left-12 w-10 h-5 rounded-[50%] bg-black/10 rotate-[-25deg] blur-sm"></div>
+<span class="font-tech text-6xl mb-2 z-10 white-glass-text tracking-wide font-black" style="text-shadow: 0 0 20px rgba(0, 0, 0, 0.2);">SOS</span>
+<span class="text-[10px] font-medium tracking-[0.25em] text-white/80 uppercase z-10 font-sans">Hold 2s</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4 mt-8 mb-4">
+<div class="glass-panel rounded-2xl p-5 flex flex-col justify-between h-32 relative group overflow-hidden border-white/10 hover:border-white/20 transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-gray-400">radio</span>
+<div class="w-2 h-2 rounded-full bg-green-500 shadow-glow-dot-green animate-pulse"></div>
+</div>
+<div class="-mt-2">
+<div class="text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">Radio Link</div>
+<div class="text-lg font-semibold tracking-tight text-white">Active</div>
+</div>
+<div class="absolute inset-0 bg-white/5 opacity-0 group-active:opacity-100 transition-opacity"></div>
+</div>
+<div class="glass-panel rounded-2xl p-5 flex flex-col justify-between h-32 relative group overflow-hidden border-white/10 hover:border-white/20 transition-colors">
+<div class="flex justify-between items-start">
+<span class="material-symbols-outlined text-gray-400">satellite_alt</span>
+<div class="w-2 h-2 rounded-full bg-blue-500 shadow-glow-dot-blue"></div>
+</div>
+<div class="-mt-2">
+<div class="text-[11px] text-gray-400 uppercase tracking-wider mb-1 font-medium">Satellite</div>
+<div class="text-lg font-semibold tracking-tight text-white">Connected</div>
+</div>
+<div class="absolute inset-0 bg-white/5 opacity-0 group-active:opacity-100 transition-opacity"></div>
+</div>
+</div>
+</main>
+<nav class="relative z-50 px-6 pb-8 pt-2">
+<div class="bg-panel-gray/60 backdrop-blur-2xl border border-white/10 rounded-full h-16 flex justify-between items-center px-8 shadow-nav-glow max-w-sm mx-auto">
+<a class="flex flex-col items-center justify-center relative w-12 h-full nav-item-active" href="#">
+<span class="material-symbols-outlined text-white text-[24px]" style="font-variation-settings: 'FILL' 1;">home</span>
+</a>
+<a class="flex flex-col items-center justify-center w-12 h-full opacity-60 hover:opacity-100 transition-all" href="#">
+<span class="material-symbols-outlined text-white text-[24px]">info</span>
+</a>
+<a class="flex flex-col items-center justify-center w-12 h-full opacity-60 hover:opacity-100 transition-all" href="#">
+<span class="material-symbols-outlined text-white text-[24px]">person</span>
+</a>
+</div>
+<div class="w-full flex justify-center mt-6">
+<div class="w-32 h-1 bg-white/20 rounded-full"></div>
+</div>
+</nav>
+<div class="fixed top-0 left-0 w-full h-full pointer-events-none z-0 overflow-hidden">
+<div class="absolute top-[-10%] right-[-10%] w-[400px] h-[400px] bg-accent-red/5 rounded-full blur-[100px]"></div>
+<div class="absolute bottom-[10%] left-[-10%] w-[300px] h-[300px] bg-blue-900/5 rounded-full blur-[100px]"></div>
+</div>
+</body></html>

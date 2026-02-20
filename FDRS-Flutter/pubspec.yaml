@@ -1,0 +1,43 @@
+name: fdrs_app
+description: "FDRS Secure Access and Response Application"
+publish_to: "none"
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.2.1
+  provider: ^6.1.2
+  get_it: ^7.6.7
+  animations: ^2.0.11
+  firebase_core: ^2.27.0
+  firebase_auth: ^4.17.8
+  google_sign_in: ^6.2.1
+  firebase_database: ^10.4.9
+  permission_handler: ^11.3.0
+  location: ^5.0.3
+  device_info_plus: ^9.1.2
+  url_launcher: ^6.3.2
+  image_picker: ^1.2.1
+  vibration: ^3.1.7
+  open_filex: ^4.7.0
+  path_provider: ^2.1.5
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_launcher_icons: ^0.14.2
+
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/logo.png"
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
