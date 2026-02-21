@@ -4,11 +4,18 @@ import 'package:location/location.dart';
 import 'package:permission_handler/permission_handler.dart'
     as permission_handler;
 
-import 'database_service.dart';
+import 'distress_service.dart';
 import 'service_locator.dart';
 
 /// Result of an SOS attempt.
-enum SosResult { success, permissionDenied, locationDisabled, error }
+enum SosResult {
+  success,
+  sentViaRadio,
+  queued,
+  permissionDenied,
+  locationDisabled,
+  error,
+}
 
 class LocationService {
   final Location _location = Location();
@@ -21,13 +28,10 @@ class LocationService {
     return status.isGranted;
   }
 
-  /// Sends an SOS distress signal.
-  /// 1. Requests location permission
-  /// 2. Enables location service if disabled
-  /// 3. Reads exact lat/long from GPS
-  /// 4. Reads device build number
-  /// 5. Generates exact UTC ISO-8601 timestamp
-  /// 6. Pushes everything to RTDB /signals
+  /// Sends an SOS distress signal via the three-tier fallback chain:
+  ///   1. Firebase RTDB (5 s timeout)
+  ///   2. Radio link   (simulated placeholder)
+  ///   3. Offline cache (auto-retry on reconnect)
   Future<SosResult> sendSOS(String? userId) async {
     try {
       // Step 1: Request permission
@@ -64,9 +68,9 @@ class LocationService {
       // Step 5: Exact UTC timestamp
       final String timestamp = DateTime.now().toUtc().toIso8601String();
 
-      // Step 6: Push to RTDB /signals
-      final dbService = locator<DatabaseService>();
-      final success = await dbService.sendDistressSignal(
+      // Step 6: Deliver via fallback chain
+      final distressService = locator<DistressService>();
+      final result = await distressService.deliver(
         userId: userId ?? 'anonymous',
         latitude: latitude,
         longitude: longitude,
@@ -74,7 +78,17 @@ class LocationService {
         timestamp: timestamp,
       );
 
-      return success ? SosResult.success : SosResult.error;
+      // Map delivery result to SosResult
+      switch (result) {
+        case DistressDeliveryResult.sentViaRtdb:
+          return SosResult.success;
+        case DistressDeliveryResult.sentViaRadio:
+          return SosResult.sentViaRadio;
+        case DistressDeliveryResult.queued:
+          return SosResult.queued;
+        case DistressDeliveryResult.failed:
+          return SosResult.error;
+      }
     } catch (e) {
       debugPrint('[SOS] Unexpected error: $e');
       return SosResult.error;

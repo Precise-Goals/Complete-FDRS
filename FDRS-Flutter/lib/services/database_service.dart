@@ -11,7 +11,7 @@ class DatabaseService {
     required String lastLogin,
   }) async {
     try {
-      await _db.child('users').child(uid).set({
+      await _db.child('users').child(uid).update({
         'uid': uid,
         'email': email ?? 'anonymous',
         'lastLogin': lastLogin,
@@ -54,7 +54,9 @@ class DatabaseService {
     required String timestamp,
   }) async {
     try {
-      await _db.child('signals').push().set({
+      final sanitizedBuild = buildNumber.replaceAll(RegExp(r'[.#$\[\]]'), '_');
+      final signalId = '${userId}_$sanitizedBuild';
+      await _db.child('signals').child(signalId).set({
         'userId': userId,
         'latitude': latitude,
         'longitude': longitude,

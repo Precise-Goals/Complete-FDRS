@@ -80,6 +80,34 @@ class _SosScreenState extends State<SosScreen> with TickerProviderStateMixin {
           ),
         );
         break;
+      case SosResult.sentViaRadio:
+        Vibration.hasVibrator().then((hasVibrator) {
+          if (hasVibrator == true) {
+            Vibration.vibrate(duration: 1000);
+          }
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('SOS sent via Radio Link.'),
+            backgroundColor: Colors.amber,
+          ),
+        );
+        break;
+      case SosResult.queued:
+        Vibration.hasVibrator().then((hasVibrator) {
+          if (hasVibrator == true) {
+            Vibration.vibrate(duration: 500);
+          }
+        });
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text(
+                'No connectivity — SOS queued. It will auto-send when you\'re back online.'),
+            backgroundColor: Colors.amber,
+            duration: Duration(seconds: 5),
+          ),
+        );
+        break;
       case SosResult.permissionDenied:
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
